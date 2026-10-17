@@ -22,7 +22,7 @@ $$P = \sum_{j=0}^{1} \sum_{i=0}^{3} \left( A[8i+7 : 8i] \times B[16j+15 : 16j] \
 
 * **64-bit Accumulator (`product_register_out`):** A 64-bit adder sums the shifted partial product with the current value in the synchronous product register. Priority synchronous clearing (`clr_prod`) resets the accumulator on the rising edge of `start`, while `upd_prod` latches new sums on each active state. Because `clr_prod` is asserted combinationally (Mealy output) in the `idle` state only when `start == 1`, the multiplier preserves its 64-bit output indefinitely after completion and supports back-to-back multiplications without requiring an external `reset`.
 
-![Multiplier Datapath Architecture](images/datapath.png)
+![Multiplier Datapath Architecture](images/datapath.jpg)
 
 ### 2. Baseline Control FSM (`mult32x32_fsm.sv`)
 The controller sequences through 8 accumulation states (`sum1` through `sum8`) after leaving `idle`:
@@ -56,7 +56,7 @@ When upper bytes or words of the operands are zero, multiplying them yields zero
 | `0` | `1` | `idle -> sum1 -> sum2 -> sum3 -> sum4 -> idle` | `sum5` – `sum8` | **5 Cycles** |
 | `1` | `1` | `idle -> sum1 -> sum2 -> sum3 -> idle` | `sum4` – `sum8` | **4 Cycles** |
 
-![Fast Multiplier FSM Diagram](images/fast_fsm.png)
+![Fast Multiplier FSM Diagram](images/fast_fsm.jpg)
 
 ---
 
@@ -92,10 +92,10 @@ The hardware modules were simulated in **ModelSim** (`mult32x32_fast_test.sv`):
 * **Test Case 2 (Zero-Optimized Operands):** Multiplies `a = 0x0000F9A9` (`63,913`) by `b = 0x00004BAB` (`19,371`). Both `a_msb_is_0` and `b_msw_is_0` assert (`1'b1`), causing the FSM to transition directly from `sum3` to `idle` and outputting `1,238,058,723` in **4 clock cycles**.
 
 ### Full 9-Cycle Execution Waveform
-![Full Execution Waveform](images/waveform_full.png)
+![Full Execution Waveform](images/waveform_full.jpg)
 
 ### Optimized 4-Cycle Execution Waveform
-![Fast Execution Waveform](images/waveform_fast.png)
+![Fast Execution Waveform](images/waveform_fast.jpg)
 
 ### Running the Simulation in ModelSim
 ```tcl
