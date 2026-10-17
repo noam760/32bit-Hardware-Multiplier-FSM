@@ -13,8 +13,6 @@ module mult32x32_fast_fsm (
     output logic clr_prod         // Clear the product register
 );
 
-// Put your code here
-// ------------------
 
 	typedef enum { idle, sum1,  sum2, sum3, sum4, sum5, sum6, sum7, sum8} state;
 	state current_state;
@@ -165,10 +163,5 @@ module mult32x32_fast_fsm (
 			current_state <= next_state;
 			end
 		end
-
-
-
-
-// End of your code
 
 endmodule
