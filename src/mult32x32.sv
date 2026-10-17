@@ -1,4 +1,4 @@
-// 32X32 Iterative Multiplier template
+// 32X32 Iterative Multiplier 
 module mult32x32 (
     input logic clk,            // Clock
     input logic reset,          // Reset
@@ -9,8 +9,6 @@ module mult32x32 (
     output logic [63:0] product // Miltiplication product
 );
 
-// Put your code here
-// ------------------
 	logic [1:0]a_sel;
     logic b_sel;
     logic [2:0]shift_sel;
