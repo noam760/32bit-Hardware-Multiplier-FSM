@@ -1,4 +1,4 @@
-// 32X32 Multiplier test template
+// 32X32 Multiplier test 
 module mult32x32_test;
 
     logic clk;            // Clock
@@ -8,10 +8,6 @@ module mult32x32_test;
     logic [31:0] b;       // Input b
     logic busy;           // Multiplier busy indication
     logic [63:0] product; // Miltiplication product
-
-
-// Put your code here
-// ------------------
 
 mult32x32 mul(
 	.clk(clk),
@@ -55,12 +51,5 @@ initial begin
         $stop;
 
 end
-
-
-
-
-
-
-// End of your code
 
 endmodule
