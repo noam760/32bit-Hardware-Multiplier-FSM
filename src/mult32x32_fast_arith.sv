@@ -1,4 +1,4 @@
-// 32X32 Multiplier arithmetic unit template
+// 32X32 Multiplier arithmetic unit 
 module mult32x32_fast_arith (
     input logic clk,             // Clock
     input logic reset,           // Reset
@@ -14,8 +14,6 @@ module mult32x32_fast_arith (
     output logic [63:0] product  // Miltiplication product
 );
 
-// Put your code here
-// ------------------
 	logic [7:0]mux_a;
 	logic [15:0]mux_b;
 	logic [23:0] multi_sum;
@@ -110,6 +108,5 @@ module mult32x32_fast_arith (
 			end
 		end
 
-// End of your code
 
 endmodule
