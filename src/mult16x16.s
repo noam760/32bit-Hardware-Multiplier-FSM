@@ -20,12 +20,6 @@ main:   # Load data from memory
         slli	t0, t0, 8
         ori		t0, t0, 0xff
         
-####################
-# Start of your code
-
-# Use the code below for 16x8 multiplication
-#   mul		<PROD>, <FACTOR1>, <FACTOR2>
-#   and		<PROD>, <PROD>, t0
 
 
 		#step one multiply uper bits 
@@ -42,12 +36,6 @@ main:   # Load data from memory
 		and    t1, t1, t0      
 
 		add   t6, t6, t1      # add to total sum
-
-
-
-
-# End of your code
-####################
 
 
 	
